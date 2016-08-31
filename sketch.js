@@ -17,4 +17,8 @@ function draw() {
   ellipseMode(CORNER);
   fill('#ff6996');
   ellipse(50,100,120,120);
+  
+  stroke(255);
+  line(50,100,500,500);
+  line(50,200,500,50);
 }
