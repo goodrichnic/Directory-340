@@ -23,7 +23,7 @@ function draw() {
   line(50,200,500,50);
   
   // background(200);
-  // rotateX(frameCount * 10.0);
-  // rotateY(frameCount * 10.0);
+  // rotateX(frameCount * 0.01);
+  // rotateY(frameCount * 0.01);
   // box(200,200,200);
 }

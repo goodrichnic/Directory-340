@@ -1,6 +1,6 @@
 function setup() {
-  createCanvas(700,700)
-  background('#000000')
+  createCanvas(800, 600);
+  background(170, 140, 255);
 }
 
 function draw() {
@@ -49,4 +49,4 @@ function draw() {
   line(340.02,320.32,323.98,363.09)//right nostril
   line(359.98,320.32,376.02,363.09)//left nostril
   
-}
+} 
