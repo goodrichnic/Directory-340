@@ -49,4 +49,4 @@ function draw() {
   line(340.02,320.32,323.98,363.09)//right nostril
   line(359.98,320.32,376.02,363.09)//left nostril
   
-} 
+}
