@@ -4,11 +4,11 @@ var scatterWidth = 1000;
 var rectAlpha = 100 
 
 // P5 wouldn't read 'x' value EVER!
-var wtf = {
+/*var wtf = {
   x:500,
   y:500,
   diam:500,
-}
+}*/
 
 function setup() {
   createCanvas(1000,1000)
