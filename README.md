@@ -8,4 +8,5 @@
   Yeah, I found myself playing with commands in the reference page just for the fun of it. 
   
       However I found quite a few errors in my code which I haven't been able to resolve. I've made notes in my project file.
+      Errors specifically regarding specifying object variables.
       Despite that I managed to turn in something cool, and sufficient. 
