@@ -37,11 +37,11 @@ rect(300,60,100,50,25);
   
   
 //   SHAPE CONTROLS
-    if (mouseX > 300) {
+     if (mouseX > 300) {
        rect(x,200,100,100);
-  }  else {ellipse(x,200,100,100);
-       
-  }
+     } else {
+          ellipse(x,200,100,100);
+     }
  
 //   WALL BOUNCING ANIMATIONS
 //   x + (-3) = x-3 Direction Changes
@@ -52,10 +52,10 @@ rect(300,60,100,50,25);
   }
 
 
-  x = x + speed
+  
 
-if (xHault){
-     x=0
+if (!xHault){
+  x = x + speed;
 }
 
 if   (stop){
@@ -63,8 +63,7 @@ if   (stop){
      fill(0);
      textAlign(CENTER);
      text("STOP",300,64);
-     }
-if   (start){
+     } else {
      noStroke();
      fill(0);
      textAlign(CENTER);
