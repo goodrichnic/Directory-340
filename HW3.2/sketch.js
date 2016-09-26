@@ -14,8 +14,6 @@ function draw() {
   background(0);
   
 //   Button
-
-
 noStroke();
 fill(200);
 
@@ -23,8 +21,8 @@ if(mouseX >= 250 && mouseX <= 350 && mouseY >= 35 && mouseY <= 85){
      fill(150);
     if(mouseIsPressed){
          fill(200,0,20);
-  }
-}
+     }
+   }
 
 
 
@@ -58,7 +56,7 @@ if (!xHault){
   x = x + speed;
 }
 
-if   (stop){
+if (stop){
      noStroke();
      fill(0);
      textAlign(CENTER);
@@ -74,8 +72,8 @@ if   (stop){
 
 function mousePressed() {
   if (mouseX >= 250 && mouseX <= 350 && mouseY >= 35 && mouseY <= 85){
-     stop = !stop //This makes Stop animate
-     start = !start  //This animates Start
+     stop = !stop //This makes "Stop" animated.
+     start = !start  //This animates "Start"
      xHault = !xHault //THIS STOPS THE BALL
   }
 
