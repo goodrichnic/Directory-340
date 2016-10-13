@@ -1,12 +1,13 @@
-function Walls(xPos, yPos, w, h) {
+function Walls(xPos, yPos, w, h,clr) {
 
   this.x = xPos;
   this.y = yPos;
   this.w = w;
   this.h = h;
+  this.clr = clr;
 }
 
 Walls.prototype.draw = function() {
-  fill(0,255,0);
+  fill(this.clr);
   rect(this.x, this.y, this.w, this.h);
 };
