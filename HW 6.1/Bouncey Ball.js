@@ -11,7 +11,7 @@ function DrawEnemy(scW,scH,enemyX,enemyY,speedX,speedY,radius) {
 
 // Prototype
 DrawEnemy.prototype.draw = function() {
-
+  noStroke();
   fill(255, 0, 255);
 
 // Right edge check

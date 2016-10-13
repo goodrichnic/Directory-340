@@ -8,6 +8,7 @@ function Walls(xPos, yPos, w, h,clr) {
 }
 
 Walls.prototype.draw = function() {
+  noStroke();
   fill(this.clr);
-  rect(this.x, this.y, this.w, this.h);
+  rect(this.x, this.y, this.w, this.h,5);
 };
