@@ -15,7 +15,7 @@ function draw() {
   for (var i = 0; i < r.length; i++) {
     // if the ball's horizontal position is >= the 'x' variable of the object r[i]
     // if the ball goes past
-    if (enemy.enemyX + enemy.radius/2 >= r[i].x && enemy.enemyX <= r[i].x + r[i].w && enemy.enemyY + enemy.radius/2 >= r[i].y && enemy.enemyY <= r[i].y + r[i].h) {
+    if (enemy.enemyX + enemy.radius/2 >= r[i].x && enemy.enemyX + enemy.radius/2 <= r[i].x + r[i].w && enemy.enemyY + enemy.radius/2 >= r[i].y && enemy.enemyY <= r[i].y + r[i].h) {
         if (enemy.enemyX + enemy.radius <= r[i].x + r[i].w && enemy.enemyX + enemy.radius >= r[i].x - r[i].w) {
             enemy.speedX = enemy.speedX * (-1);
             enemy.speedY = enemy.speedY * (-1);
@@ -36,7 +36,9 @@ function draw() {
           }
           r[i].draw();
         }
-        enemy.draw();
+          enemy.draw();
+
+
         // text(r.length, 20, 20);
       }
 
