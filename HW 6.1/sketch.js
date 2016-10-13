@@ -16,13 +16,13 @@ function draw() {
     // if the ball's horizontal position is >= the 'x' variable of the object r[i]
     // if the ball goes past
     if (enemy.enemyX + enemy.radius/2 >= r[i].x && enemy.enemyX + enemy.radius/2 <= r[i].x + r[i].w && enemy.enemyY + enemy.radius/2 >= r[i].y && enemy.enemyY <= r[i].y + r[i].h) {
-        if (enemy.enemyX + enemy.radius <= r[i].x + r[i].w && enemy.enemyX + enemy.radius >= r[i].x - r[i].w) {
+        if (enemy.enemyX + enemy.radius/2 <= r[i].x + r[i].w && enemy.enemyX + enemy.radius/2 >= r[i].x - r[i].w) {
             enemy.speedX = enemy.speedX * (-1);
             enemy.speedY = enemy.speedY * (-1);
           } else {
             enemy.speedY = enemy.speedY * (-1);
           }
-          if (enemy.enemyY + enemy.radius <= r[i].y + r[i].h && enemy.enemyY + enemy.radius >= r[i].y + r[i].h) {
+          if (enemy.enemyY + enemy.radius/2 <= r[i].y + r[i].h && enemy.enemyY + enemy.radius/2 >= r[i].y + r[i].h) {
               enemy.speedY = enemy.speedY + random(1,2) * (-1);
               enemy.speedX = enemy.speedX - random(1,2) * (-1);
 
