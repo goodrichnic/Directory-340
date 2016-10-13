@@ -12,7 +12,7 @@ function DrawEnemy(scW,scH,enemyX,enemyY,speedX,speedY,radius) {
 // Prototype
 DrawEnemy.prototype.draw = function() {
   noStroke();
-  fill(255, 0, 255);
+  fill(color(145,167,211));
 
 // Right edge check
   if (this.enemyX > this.scW) {
@@ -35,6 +35,8 @@ DrawEnemy.prototype.draw = function() {
   ellipse(this.enemyX, this.enemyY, this.radius, this.radius);
   // rect(300,300,20,20);
 };
+
+
 
 // function BrickBounce() {
 //   this.
