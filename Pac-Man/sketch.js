@@ -16,15 +16,21 @@ function setup() {
 
 function draw() {
 
-  pacc.draw();
-  pac[i].draw();
+  for (var i = 0; i < pac.length; i++) {
+    pac[i].draw();
+  }
 
-}
+    // pacc.draw();
+    // pac[i].draw();
+    fill(255);
+    text(pac.length,20,20);
 
-// function mousePressed(){
-//   for (var y = 0; y < height; y += 20) {
-//     for (var x = 0; x < width; x += 40) {
-//         pac.push(new PacMan(x, y));
-//       }
-//     }
-//   }
+  }
+
+  // function mousePressed(){
+  //   for (var y = 0; y < height; y += 20) {
+  //     for (var x = 0; x < width; x += 40) {
+  //         pac.push(new PacMan(x, y));
+  //       }
+  //     }
+  //   }

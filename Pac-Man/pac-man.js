@@ -27,7 +27,4 @@ PacMan.prototype.draw = function() {
   fill(255,0,0);
   ellipse(this.eyeX+1.5,this.eyeY,this.eyeDiam/2,this.eyeDiam/4);
 };
-
-PacMan.prototype.move = function() {
-
-};
+x
