@@ -1,36 +1,31 @@
 var pac = [];
-var pacman = 12;
-var x = 300;
-var y = 300;
+var pacman = 6;
+var xPos = 0;
+var yPos = 20;
+var pacDist = 80;
+var diam = 0;
 
 function setup() {
   createCanvas(600,600);
 
   // Initial Pacmen cluster
   for (var i = 0; i < pacman; i++) {
-    pac[i] = (new PacMan((i+1) * PacMan.diam, height * (i / pacman)));
+    pac[i] = (new PacMan((i+1) * pacDist, height * (i / pacman)));
   }
-  pacc = new PacMan(x,y);
-  background(0);
+
 }
 
 function draw() {
+  var posArray = [];
 
+  background(0);
   for (var i = 0; i < pac.length; i++) {
+    posArray = pac.slice(0,i);
+    tempArr = posArray.concat(pac.slice(i+1, pac.length));
+    pac[i].checkPos(posArray);
     pac[i].draw();
   }
+  // fill(255);
+  // text(pac.length,20,20);
 
-    // pacc.draw();
-    // pac[i].draw();
-    fill(255);
-    text(pac.length,20,20);
-
-  }
-
-  // function mousePressed(){
-  //   for (var y = 0; y < height; y += 20) {
-  //     for (var x = 0; x < width; x += 40) {
-  //         pac.push(new PacMan(x, y));
-  //       }
-  //     }
-  //   }
+}
