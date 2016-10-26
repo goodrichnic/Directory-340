@@ -27,7 +27,7 @@ function PacMan(pacX,pacY) {
   this.minDist = 0;
   this.xDiff = 0;
   this.yDiff = 0;
-  this.change = 0
+  this.change = 0;
 
 }
 
@@ -51,10 +51,10 @@ PacMan.prototype.draw = function() {
   arc(this.pacX,this.pacY,this.diam,this.diam,PI*this.mouthAngle,-PI*this.mouthAngle);
   // Eye
   fill(0);
-  ellipse(this.eyeX,this.eyeY,this.eyeDiam,this.eyeDiam/1.2);
+  ellipse(this.pacX + 5,this.pacY - 22,this.eyeDiam,this.eyeDiam/1.2);
   // Pupil
   fill(255,0,0);
-  ellipse(this.eyeX+1.5,this.eyeY,this.eyeDiam/2,this.eyeDiam/4);
+  ellipse(this.pacX + 6.5, this.pacY - 22,this.eyeDiam/2,this.eyeDiam/4);
 
 };
 
@@ -62,36 +62,37 @@ PacMan.prototype.draw = function() {
 // MAKE PACMAN MOVE AROUND
 PacMan.prototype.move = function() {
   if (!this.hold) {
-    this.pacX += this.speed;
-    this.pacY += this.speed;
-    this.eyeX += this.speed;
-    this.eyeY += this.speed;
+    this.pacX += this.xSpeed;
+    this.pacY += this.ySpeed;
+    this.eyeX += this.xSpeed;
+    this.eyeY += this.ySpeed;
   }
 
   // Check Pacmen against walls
   // Pacman X-AXIS
-  if (this.pacX + this.diam/2 > width) {
-    this. speed = this.speed * (-1);
+  if (this.pacX + this.diam/2 >= width) {
+    this.pacX += this.xSpeed * (-1);
   } else if (this.pacX <= 0) {
-    this.speed = random(10);
+    this.xSpeed = this.xSpeed;
   }
   // Pacman Y-AXIS
-  if (this.pacY + this.diam/2 > height) {
-    this. speed = this.speed * (-1);
-  } else if (this.pacY < 0) {
-    this.speed = random(10);
+  if (this.pacY + this.diam/2 >= height) {
+    this.pacY += this.ySpeed * (-1);
+  } else if (this.pacY <= 0) {
+    this.ySpeed = 2;
+    this.pacY += this.ySpeed;
   }
   // EYE X-AXIS
-  if (this.eyeX > width) {
-    this. speed = this.speed * (-1);
-  } else if (this.eyeX < 0) {
-    this.speed = random(10);
+  if (this.eyeX >= width) {
+    this.eyeX += this.xSpeed * (-1);
+  } else if (this.eyeX <= 0) {
+    this.eyeX += this.xSpeed;
   }
   // EYE Y-AXIS
-  if (this.eyeY > width) {
-    this. speed = this.speed * (-1);
-  } else if (this.eyeY < 0) {
-    this.speed = random(10);
+  if (this.eyeY >= height) {
+    this.eyeY += this.ySpeed * (-1);
+  } else if (this.eyeY <= 0) {
+    this.eyeY += this.ySpeed;
   }
 
 };
@@ -139,10 +140,10 @@ PacMan.prototype.changeDirection = function () {
     this.ySpeed = this.change;
   } else if (newDirection === 2) {
     this.xSpeed = -this.change;
-		this.ySpeed = 0;
+    this.ySpeed = 0;
   } else if (newDirection === 3) {
     this.xSpeed = 0;
-		this.ySpeed = -this.change;
+    this.ySpeed = -this.change;
   }
 };
 
