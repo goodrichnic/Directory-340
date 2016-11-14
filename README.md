@@ -17,3 +17,5 @@ I'm going to have to go back and research traditional tuning math and adjust eac
  If I have the time and resources I'd like to make this midi compatible in-browser.
 
 https://blokdust.com/
+
+https://xfer-assets.s3.amazonaws.com/assets/serum/serumall-d76f7f719afe395edd6e04623e29996f.gif
