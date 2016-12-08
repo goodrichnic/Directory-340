@@ -71,7 +71,7 @@ function mousePressed() {
   if (mouseX >= 250 && mouseX <= 350 && mouseY >= 35 && mouseY <= 85){
      stop = !stop; //This makes "Stop" animated.
      start = !start;  //This animates "Start"
-     xHault = !xHault; //THIS STOPS THE BALL
+     xHault = !xHault; //THIS STOPS THE BALLq
   }
 
 }
