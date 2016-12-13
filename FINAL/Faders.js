@@ -65,10 +65,12 @@ Fader.prototype.updateValue = function() {
             // North
             this.deltaDir = -1;
         }
+
         // distance traveled since mouse click
         // this.delta = dist(this.deltaStartX, this.deltaStartY, mouseX, mouseY);
-        //
+
         this.delta = map(constrain(mouseY, this.railTop, this.railBot), this.railBot, this.railTop, 0, 1) * this.deltaDir;
+        // this.delta = map(mouseY, this.railBot, this.railTop, 0, 1) * this.deltaDir;
 
         this.value = constrain(this.holdValue + this.delta, 0, 1);
 

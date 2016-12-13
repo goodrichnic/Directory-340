@@ -1,4 +1,4 @@
-function Knob(initX, initY, initDiam, initVal) {
+function Knob(initX, initY, initDiam, initVal, knobs, outputMin, outputMax) {
   this.xpos = initX;
   this.ypos = initY;
   this.diam = initDiam;
@@ -10,7 +10,11 @@ function Knob(initX, initY, initDiam, initVal) {
   this.deltaStartY = 0;
   this.deltaDir = 0;
 
+  this.outputMin = outputMin;
+  this.outputMax = outputMax;
+
   this.active = false;
+
 }
 
 // This gets called once ONCE because of function mousePressed()
@@ -52,7 +56,7 @@ Knob.prototype.unselectKnob = function() {
   }
 };
 
-Knob.prototype.drawShape = function() {
+Knob.prototype.drawKnob = function() {
   push();
   noFill();
   stroke(255, 255, 255);
@@ -66,6 +70,12 @@ Knob.prototype.drawShape = function() {
 
   // Knob Shape
   arc(0, 0, this.diam, this.diam, PI * 1.75, PI + QUARTER_PI);
-  line(0, -50, 0, 0);
+  line(0, -(this.diam * 0.6), 0, 0);
   pop();
+};
+
+Knob.prototype.getValue = function() {
+  var outputVal;
+  outputVal = map(this.value,0,1,this.outputMin,this.outputMax);
+  return outputVal;
 };
