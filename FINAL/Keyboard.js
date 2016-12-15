@@ -20,15 +20,12 @@ function Keyboard( whtX, whtY, blkX, faders, knobs ) {
   this.octave = 12;
   this.whtKeys = [0, 0, 0, 0, 0, 0, 0, 0];
   this.blkKeys = [0, 0, 0, 0, 0, 0, 0];
-
   // S Y N T H E S I S
-  this.osc;
   this.oscShapes = ['sine', 'triangle', 'sawtooth', 'square'];
   this.waveFormSelect;
-  this.oscType;
+  this.oscType = this.waveFormSelect;
   this.playing = false;
   this.pianoKeyDown = false;
-  this.oscArr = [];
   // Envelope Extremes
   this.attackLevel = 1.0;
   this.releaseLevel = 0.0;
@@ -51,23 +48,19 @@ Keyboard.prototype.oscSetup = function() {
   this.filter = new p5.BandPass();
   this.osc = new p5.Oscillator();
   this.osc.amp(this.env);
-  // this.osc.setType(this.oscShapes[this.knobs.waveFormVal]);
+  // this.osc.setType(this.oscShapes[this.waveFormSelect]);
   this.osc.disconnect();
   this.osc.connect(this.filter);
   this.osc.start();
 };
 
 Keyboard.prototype.oscLoop = function() {
-  // this.osc.connect(this.filter);
   this.env.setADSR(this.faders.envAttMod.getValue(), this.faders.envDecMod.getValue(), this.faders.envSusMod.getValue(), this.faders.envRelMod.getValue());
-  this.filter.freq(map(this.knobs.filtFreqMod.getValue(),0,height/8,10,22050));
-  this.filter.res(map(this.knobs.filtResMod.getValue(),0,height,1,1000));
-  this.waveFormSelect = (map(this.knobs.waveFormVal.getValue(),0,height/2,0,3));
-  this.osc.setType(this.oscShapes[this.knobs.waveFormVal]);
-
+  this.filter.freq(map(this.knobs.filtFreqMod.getValue(),0,height/24,10,22050));
+  this.filter.res(map(this.knobs.filtResMod.getValue(),0,height/24,1,1000));
+  // this.waveFormSelect = map(this.knobs.waveFormVal.getValue(),0,height/20,0,3);
   // this.osc.setType('square');
 };
-
 
 Keyboard.prototype.drawKeys = function() {
   noStroke();
@@ -111,7 +104,6 @@ Keyboard.prototype.drawKeys = function() {
   //  console.log(this.playing);
   //  text("X:  " + constrain(mouseX, 0, width), 25, 60);
   //  text("Y:  " + constrain(mouseY, 0, height), 80, 60);
-
 };
 
 Keyboard.prototype.keySelect = function() {
@@ -126,6 +118,10 @@ Keyboard.prototype.keyRelease = function() {
 Keyboard.prototype.asciiTrig = function() {
   // TRIALS
   if (keyCode === LEFT_ARROW) {
+    this.osc.start();
     this.osc.freq(440);
+  } else if (keyCode === RIGHT_ARROW) {
+    this.osc.start();
+    this.osc.freq(600);
   }
 };

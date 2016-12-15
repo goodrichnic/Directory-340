@@ -50,6 +50,7 @@ Fader.prototype.selectFader = function() {
         this.active = true;
         this.deltaStartX = mouseX; //Saves mouseX INITIAL click pos. to memory
         this.deltaStartY = mouseY; //Saves mouseY INITIAL click pos. to memory
+        this.fadeY = mouseY;
     } else if (!mouseIsPressed) {
         this.active = false;
     }
@@ -61,19 +62,17 @@ Fader.prototype.updateValue = function() {
         if (mouseY < this.deltaStartY) {
             // South
             this.deltaDir = -1;
-        } else {
+        } else if (mouseY > this.deltaStartY) {
             // North
             this.deltaDir = 1;
         }
-
+        this.fadeY = mouseY;
         // distance traveled since mouse click
-        // this.delta = dist(this.deltaStartX, this.deltaStartY, mouseX, mouseY);
+        // this.delta = constrain(dist(this.deltaStartX, this.deltaStartY, mouseX, mouseY),this.railBot,this.railTop);
 
         this.delta = map(constrain(mouseY, this.railTop, this.railBot), this.railBot, this.railTop, 0, 1) * this.deltaDir;
-        // this.delta = map(mouseY,)
-        // this.delta = map(mouseY, this.railBot, this.railTop, -1, 1) * this.deltaDir;
 
-        this.value = constrain(this.holdValue + this.delta, 0, 1);
+        this.value = constrain(this.holdValue + this.delta, 0,1);
 
         // console.log(this.delta);
     }

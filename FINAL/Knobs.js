@@ -66,7 +66,7 @@ Knob.prototype.drawKnob = function() {
   translate(this.xpos, this.ypos);
   stroke(255);
 
-  rotate(map(this.value, -1, 1, (QUARTER_PI * 3), (-(QUARTER_PI * 3))));
+  rotate(map(this.value, 1, -1, (QUARTER_PI * 3), (-(QUARTER_PI * 3))));
 
   // Knob Shape
   arc(0, 0, this.diam, this.diam, PI * 1.75, PI + QUARTER_PI);
@@ -80,9 +80,9 @@ Knob.prototype.getValue = function() {
   return outputVal;
 };
 
-Knob.prototype.oscSetType = function() {
-  var outputOsc;
-  ouputOsc = map(this.value,0,1,this.outputMin,this.outputMax);
-  console.log(outputOsc);
-  return outputOsc;
-};
+// Knob.prototype.oscSetType = function() {
+//   var outputOsc;
+//   ouputOsc = map(this.value,0,1,this.outputMin,this.outputMax);
+//   // console.log(outputOsc);
+//   return outputOsc;
+// };
