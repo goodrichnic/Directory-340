@@ -10,9 +10,9 @@ function setup(){
 
   createCanvas(windowWidth, windowHeight);
   rectMode(CENTER);
-  keyboard = new Keyboard(width/6,500,width/(4.6),faders, knobs);
+  keyboard = new Keyboard(width/6,500,width/(4.6),faders, knobs); //White Keys
 
-                      // MODULATION \\
+                                      // MODULATION \\
   // Envelope
   faders.envAttMod = new Fader( 100, 100, 60, 20, 0.1, 0, 1);
   faders.envDecMod = new Fader( 200, 100, 60, 20, 0.2, 0, 1);
@@ -21,10 +21,10 @@ function setup(){
   // Sound initiation
   keyboard.oscSetup();
   // F i l t e r
-  knobs.filtFreqMod = new Knob(800, 100, 60, 0, 0, 1);
+  knobs.filtFreqMod = new Knob(800, 100, 60, 1, 0, 1);
   knobs.filtResMod = new Knob(900, 100, 60, 0, 0, 1);
-  // knobs.waveFormVals
-  knobs.waveFormValVal = new Knob( 600, 200, 120, 0, 0, 3);
+  // W A V E  F O R M
+  knobs.waveFormVal = new Knob( 600, 200, 120, 0, 0, 1);
 }
 
 function draw() {
@@ -42,7 +42,7 @@ function draw() {
   knobs.filtFreqMod.drawKnob();
   knobs.filtResMod.drawKnob();
   // Wavform Selector
-  knobs.waveFormValVal.drawKnob();
+  knobs.waveFormVal.drawKnob();
 
 }
 
@@ -58,7 +58,7 @@ function mousePressed() {
 knobs.filtFreqMod.selectKnob();
 knobs.filtResMod.selectKnob();
 // knobs.waveFormVal Selector Clicked
-knobs.waveFormValVal.selectKnob();
+knobs.waveFormVal.selectKnob();
 }
 function mouseDragged() {
 // Envelope Faders Value modulator
@@ -70,7 +70,7 @@ function mouseDragged() {
   knobs.filtFreqMod.updateValue();
   knobs.filtResMod.updateValue();
   // knobs.waveFormVal Selector Value
-  knobs.waveFormValVal.updateValue();
+  knobs.waveFormVal.updateValue();
 }
 function mouseReleased() {
 // Envelope Faders
@@ -84,7 +84,7 @@ function mouseReleased() {
 knobs.filtFreqMod.unselectKnob();
 knobs.filtResMod.unselectKnob();
 // knobs.waveFormVal Selector
-knobs.waveFormValVal.unselectKnob();
+knobs.waveFormVal.unselectKnob();
 }
 
 function keyPressed() {

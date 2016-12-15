@@ -6,6 +6,8 @@ function Keyboard( whtX, whtY, blkX, faders, knobs ) {
   this.blkH = 100;
   this.blkFill = 0;
   this.blkFrqArr = [138.591, 155.563, null, 184.997, 207.652, 233.082, null];
+  this.blkFrqA = [138.591, 155.563];
+  this.blkFrqB = [184.997, 207.652, 233.082];
   // White Keys
   this.whtX = whtX;       //35;
   this.whtY = whtY;       //450;
@@ -18,6 +20,7 @@ function Keyboard( whtX, whtY, blkX, faders, knobs ) {
   this.octave = 12;
   this.whtKeys = [0, 0, 0, 0, 0, 0, 0, 0];
   this.blkKeys = [0, 0, 0, 0, 0, 0, 0];
+
   // S Y N T H E S I S
   this.osc;
   this.oscShapes = ['sine', 'triangle', 'sawtooth', 'square'];
@@ -59,9 +62,10 @@ Keyboard.prototype.oscLoop = function() {
   this.env.setADSR(this.faders.envAttMod.getValue(), this.faders.envDecMod.getValue(), this.faders.envSusMod.getValue(), this.faders.envRelMod.getValue());
   this.filter.freq(map(this.knobs.filtFreqMod.getValue(),0,height/8,10,22050));
   this.filter.res(map(this.knobs.filtResMod.getValue(),0,height,1,1000));
-  // this.osc.setType(this.oscShapes);
-  this.osc.setType('square');
+  this.osc.setType(map(this.knobs.waveFormVal.getValue(),0,height,0,3));
+  // this.osc.setType('square');
 };
+
 
 Keyboard.prototype.drawKeys = function() {
   noStroke();
@@ -73,7 +77,6 @@ Keyboard.prototype.drawKeys = function() {
     this.env.play();
     this.osc.amp(this.env);
   }
-
   for (var j = 0; j < this.blkKeys.length; j++) {
     fill(0);
     push();
