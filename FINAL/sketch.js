@@ -24,13 +24,14 @@ function setup(){
   knobs.filtFreqMod = new Knob(800, 100, 60, 1, 0, 1);
   knobs.filtResMod = new Knob(900, 100, 60, 0, 0, 1);
   // W A V E  F O R M
-  knobs.waveFormVal = new Knob( 600, 200, 120, 0, 0, 1);
+  knobs.waveFormVal = new Knob(600, 200, 120, 0, 0, 1);
 }
 
 function draw() {
   background('#f592ae');
   // Oscillator Functionality
   keyboard.oscLoop();
+  console.log(knobs.waveFormVal);
 // Create Piano keys
   keyboard.drawKeys();
 // Create Faders for Envelope

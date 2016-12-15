@@ -38,7 +38,7 @@ function Keyboard( whtX, whtY, blkX, faders, knobs ) {
   // Class Function titles (p5.Sound Library)
   this.env;
   this.osc;
-
+// ascii codes
   this.whtKeyBoard = [97,115,100,102,103,104,106,107,108]; //A-K
   this.blkKeyBoard = [119,101,116,121,117]; //W-E & T-U
 
@@ -51,7 +51,7 @@ Keyboard.prototype.oscSetup = function() {
   this.filter = new p5.BandPass();
   this.osc = new p5.Oscillator();
   this.osc.amp(this.env);
-  this.osc.setType('sawtooth');
+  // this.osc.setType(this.oscShapes[this.knobs.waveFormVal]);
   this.osc.disconnect();
   this.osc.connect(this.filter);
   this.osc.start();
@@ -62,7 +62,9 @@ Keyboard.prototype.oscLoop = function() {
   this.env.setADSR(this.faders.envAttMod.getValue(), this.faders.envDecMod.getValue(), this.faders.envSusMod.getValue(), this.faders.envRelMod.getValue());
   this.filter.freq(map(this.knobs.filtFreqMod.getValue(),0,height/8,10,22050));
   this.filter.res(map(this.knobs.filtResMod.getValue(),0,height,1,1000));
-  this.osc.setType(map(this.knobs.waveFormVal.getValue(),0,height,0,3));
+  this.waveFormSelect = (map(this.knobs.waveFormVal.getValue(),0,height/2,0,3));
+  this.osc.setType(this.oscShapes[this.knobs.waveFormVal]);
+
   // this.osc.setType('square');
 };
 
