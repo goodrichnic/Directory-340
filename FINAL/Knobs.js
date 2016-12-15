@@ -1,4 +1,4 @@
-function Knob(initX, initY, initDiam, initVal, knobs, outputMin, outputMax) {
+function Knob(initX, initY, initDiam, initVal, outputMin, outputMax) {
   this.xpos = initX;
   this.ypos = initY;
   this.diam = initDiam;
@@ -45,7 +45,7 @@ Knob.prototype.updateValue = function() {
 
     this.value = constrain(this.holdValue + this.delta, -1, 1);
 
-    console.log(this.delta);
+    // console.log(this.delta);
   }
 };
 
@@ -78,4 +78,11 @@ Knob.prototype.getValue = function() {
   var outputVal;
   outputVal = map(this.value,0,1,this.outputMin,this.outputMax);
   return outputVal;
+};
+
+Knob.prototype.oscSetType = function() {
+  var outputOsc;
+  ouputOsc = map(this.value,0,1,this.outputMin,this.outputMax);
+  console.log(outputOsc);
+  return outputOsc;
 };
