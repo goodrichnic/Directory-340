@@ -5,14 +5,14 @@ function Keyboard( whtX, whtY, blkX, faders, knobs ) {
   this.blkW = 70;
   this.blkH = 100;
   this.blkFill = 0;
-  this.blkFrqArr = [138.591, 155.563, null, 184.997, 207.652, 233.082, null];
+  this.blkFrqArr = [138.591, 155.563, 174.61, 196.00, 220.00, 246.94, 277.18];
   // White Keys
   this.whtX = whtX;       //35;
   this.whtY = whtY;       //450;
   this.whtW = 70;
   this.whtH = 100;
   this.whtFill = 255;
-  this.whtFrqArr = [130.81,146.83,164.81,174.61,196.00,220.00,246.94,261.63];
+  this.whtFrqArr = [130.81,146.83,164.81,184.997,207.652,233.082,261.63,293.66];
   // Octaves & Arrays
   this.whtOct = 8;
   this.blkOct = 7;
@@ -59,7 +59,7 @@ Keyboard.prototype.oscLoop = function() {
   this.filter.freq(map(this.knobs.filtFreqMod.getValue(),0,height/24,10,22050));
   this.filter.res(map(this.knobs.filtResMod.getValue(),0,height/24,1,1000));
   // this.waveFormSelect = map(this.knobs.waveFormVal.getValue(),0,height/20,0,3);
-  // this.osc.setType('square');
+  this.osc.setType('square');
 };
 
 Keyboard.prototype.drawKeys = function() {
