@@ -11,7 +11,7 @@ var waveFormVal;
 
 var segaFont;
 function preload() {
-title = loadImage("FINAL/Title_Card.png");
+// title = loadImage("goodrichnic.github.io/FINAL/Title_Card.png");
 }
 
 function setup() {
@@ -44,7 +44,7 @@ function draw() {
 // Create Piano keys
   keyboard.drawKeys();
 // Create Faders for Envelope
-  image(title,500,500);
+  image(FINAL/Title_Card.png,500,500);
   textAlign(CENTER);
   textSize(40);
   text("ENVELOPE",250,200);
