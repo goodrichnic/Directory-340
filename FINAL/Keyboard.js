@@ -6,8 +6,6 @@ function Keyboard( whtX, whtY, blkX, faders, knobs ) {
   this.blkH = 100;
   this.blkFill = 0;
   this.blkFrqArr = [138.591, 155.563, null, 184.997, 207.652, 233.082, null];
-  this.blkFrqA = [138.591, 155.563];
-  this.blkFrqB = [184.997, 207.652, 233.082];
   // White Keys
   this.whtX = whtX;       //35;
   this.whtY = whtY;       //450;
@@ -17,6 +15,7 @@ function Keyboard( whtX, whtY, blkX, faders, knobs ) {
   this.whtFrqArr = [130.81,146.83,164.81,174.61,196.00,220.00,246.94,261.63];
   // Octaves & Arrays
   this.whtOct = 8;
+  this.blkOct = 7;
   this.octave = 12;
   this.whtKeys = [0, 0, 0, 0, 0, 0, 0, 0];
   this.blkKeys = [0, 0, 0, 0, 0, 0, 0];
@@ -39,6 +38,7 @@ function Keyboard( whtX, whtY, blkX, faders, knobs ) {
   this.whtKeyBoard = [97,115,100,102,103,104,106,107,108]; //A-K
   this.blkKeyBoard = [119,101,116,121,117]; //W-E & T-U
 
+  this.isVisible = true;
 }
 
 Keyboard.prototype.oscSetup = function() {
@@ -72,10 +72,17 @@ Keyboard.prototype.drawKeys = function() {
     this.env.play();
     this.osc.amp(this.env);
   }
+  // Black Key Functionality
   for (var j = 0; j < this.blkKeys.length; j++) {
+    if ( this.blkKeys[j] !== this.blkKeys[0,1,3,4,5] ) {
+      this.isVisible = false;
+    }
+    if ( this.blkKeys[j] == this.blkKeys[0,1,3,4,5] ){
+    this.visible = true;
     fill(0);
     push();
     rect(this.blkX + [j] * 125, this.blkY, this.blkW, this.blkH, 5);
+
     if (this.pianoKeyDown && mouseX >= (this.blkX + [j] * 125) - (this.blkW / 2) && mouseX <= (this.blkX + [j] * 125) + (this.blkW / 2)
     && mouseY >= this.blkY - (this.blkH / 2) && mouseY <= this.blkY + ( this.blkH / 2) ) {
       fill(255, 0, 0);
@@ -85,7 +92,7 @@ Keyboard.prototype.drawKeys = function() {
     rect(this.blkX + [j] * 125, this.blkY, this.blkW, this.blkH, 5);
     pop();
   }
-
+}
   // White Key functionality
   for (var i = 0; i < this.whtKeys.length; i++) {
     fill(255);
@@ -98,9 +105,8 @@ Keyboard.prototype.drawKeys = function() {
     }
     rect(this.whtX + [i] * 125, this.whtY, this.whtW, this.whtH, 5);
     pop();
-    // I need to find a way to make an exception for blkKeys[2] and ensure it's not a valid button.
+    // I need to find a way to make an exception for blkKeys[2,6] and ensure it's not a valid button.
   }
-
   //  console.log(this.playing);
   //  text("X:  " + constrain(mouseX, 0, width), 25, 60);
   //  text("Y:  " + constrain(mouseY, 0, height), 80, 60);

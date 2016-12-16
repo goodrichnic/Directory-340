@@ -76,13 +76,6 @@ Knob.prototype.drawKnob = function() {
 
 Knob.prototype.getValue = function() {
   var outputVal;
-  outputVal = map(this.value,0,1,this.outputMin,this.outputMax);
+  outputVal = int(map(this.value,0,1,this.outputMin,this.outputMax));
   return outputVal;
 };
-
-// Knob.prototype.oscSetType = function() {
-//   var outputOsc;
-//   ouputOsc = map(this.value,0,1,this.outputMin,this.outputMax);
-//   // console.log(outputOsc);
-//   return outputOsc;
-// };

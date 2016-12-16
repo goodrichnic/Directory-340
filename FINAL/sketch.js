@@ -9,6 +9,11 @@ var knobs = {};
 var oscType;
 var waveFormVal;
 
+var segaFont;
+function preload() {
+title = loadImage("FINAL/Title_Card.png");
+}
+
 function setup() {
 
   createCanvas(windowWidth, windowHeight);
@@ -23,15 +28,15 @@ function setup() {
   // Sound initiation
   keyboard.oscSetup();
   // F i l t e r
-  knobs.filtFreqMod = new Knob(800, 100, 60, 1, 0, 1);
-  knobs.filtResMod = new Knob(900, 100, 60, 0, 0, 1);
+  knobs.filtFreqMod = new Knob(width - 300, 100, 60, 1, 0, 1);
+  knobs.filtResMod = new Knob(width - 400, 100, 60, 0, 0, 1);
   // W A V E  F O R M
   waveFormVal = new Knob(600, 200, 120, -1, 0, 3);
 }
 
 function draw() {
   background('#f592ae');
-  oscType = map(waveFormVal.getValue(),0,height/20,0,3);
+  oscType = floor(map(int(waveFormVal.outputVal),0,height/20,0,3));
   keyboard.osc.setType(keyboard.oscShapes[oscType]);
   // Oscillator Functionality
   keyboard.oscLoop();
@@ -39,6 +44,12 @@ function draw() {
 // Create Piano keys
   keyboard.drawKeys();
 // Create Faders for Envelope
+  image(title,500,500);
+  textAlign(CENTER);
+  textSize(40);
+  text("ENVELOPE",250,200);
+  textSize(30);
+  text("FILTER",width-350,200);
   faders.envAttMod.drawFader();
   faders.envDecMod.drawFader();
   faders.envSusMod.drawFader();
@@ -47,7 +58,7 @@ function draw() {
   knobs.filtFreqMod.drawKnob();
   knobs.filtResMod.drawKnob();
   // Wavform Selector
-  waveFormVal.drawKnob();
+  // waveFormVal.drawKnob();
 }
 
 function mousePressed() {
@@ -62,7 +73,7 @@ function mousePressed() {
 knobs.filtFreqMod.selectKnob();
 knobs.filtResMod.selectKnob();
 // waveFormVal Selector Clicked
-waveFormVal.selectKnob();
+// waveFormVal.selectKnob();
 }
 function mouseDragged() {
 // Envelope Faders Value modulator
@@ -74,7 +85,7 @@ function mouseDragged() {
   knobs.filtFreqMod.updateValue();
   knobs.filtResMod.updateValue();
   // waveFormVal Selector Value
-  waveFormVal.updateValue();
+  // waveFormVal.updateValue();
 }
 function mouseReleased() {
 // Envelope Faders
@@ -88,7 +99,7 @@ function mouseReleased() {
 knobs.filtFreqMod.unselectKnob();
 knobs.filtResMod.unselectKnob();
 // waveFormVal Selector
-waveFormVal.unselectKnob();
+// waveFormVal.unselectKnob();
 }
 
 function keyPressed() {
