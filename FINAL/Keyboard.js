@@ -5,20 +5,21 @@ function Keyboard( whtX, whtY, blkX, faders, knobs ) {
   this.blkW = 70;
   this.blkH = 100;
   this.blkFill = 0;
-  this.blkFrqArr = [138.591, 155.563, 174.61, 196.00, 220.00, 246.94, 277.18];
+  this.blkFrqArr = [138.59, 155.56, null, 185.00, 207.65, 233.08, null];
   // White Keys
   this.whtX = whtX;       //35;
   this.whtY = whtY;       //450;
   this.whtW = 70;
   this.whtH = 100;
   this.whtFill = 255;
-  this.whtFrqArr = [130.81,146.83,164.81,184.997,207.652,233.082,261.63,293.66];
+  this.whtFrqArr = [130.81,146.83,164.81,174.61,196.00,220.00,246.94,261.63];
   // Octaves & Arrays
   this.whtOct = 8;
   this.blkOct = 7;
   this.octave = 12;
   this.whtKeys = [0, 0, 0, 0, 0, 0, 0, 0];
   this.blkKeys = [0, 0, 0, 0, 0, 0, 0];
+  this.blkKeysToShow = [0, 1, 3, 4, 5];
   // S Y N T H E S I S
   this.oscShapes = ['sine', 'triangle', 'sawtooth', 'square'];
   this.waveFormSelect;
@@ -34,7 +35,7 @@ function Keyboard( whtX, whtY, blkX, faders, knobs ) {
   // Class Function titles (p5.Sound Library)
   this.env;
   this.osc;
-// ascii codes
+  // ascii codes
   this.whtKeyBoard = [97,115,100,102,103,104,106,107,108]; //A-K
   this.blkKeyBoard = [119,101,116,121,117]; //W-E & T-U
 
@@ -59,11 +60,12 @@ Keyboard.prototype.oscLoop = function() {
   this.filter.freq(map(this.knobs.filtFreqMod.getValue(),0,height/24,10,22050));
   this.filter.res(map(this.knobs.filtResMod.getValue(),0,height/24,1,1000));
   // this.waveFormSelect = map(this.knobs.waveFormVal.getValue(),0,height/20,0,3);
-  this.osc.setType('square');
+  // this.osc.setType('square');
 };
 
 Keyboard.prototype.drawKeys = function() {
   noStroke();
+
 
   if (!this.playing) {
     this.osc.amp(0);
@@ -74,25 +76,23 @@ Keyboard.prototype.drawKeys = function() {
   }
   // Black Key Functionality
   for (var j = 0; j < this.blkKeys.length; j++) {
-    if ( this.blkKeys[j] !== this.blkKeys[0,1,3,4,5] ) {
-      this.isVisible = false;
-    }
-    if ( this.blkKeys[j] == this.blkKeys[0,1,3,4,5] ){
-    this.visible = true;
-    fill(0);
-    push();
-    rect(this.blkX + [j] * 125, this.blkY, this.blkW, this.blkH, 5);
 
-    if (this.pianoKeyDown && mouseX >= (this.blkX + [j] * 125) - (this.blkW / 2) && mouseX <= (this.blkX + [j] * 125) + (this.blkW / 2)
-    && mouseY >= this.blkY - (this.blkH / 2) && mouseY <= this.blkY + ( this.blkH / 2) ) {
-      fill(255, 0, 0);
-      this.osc.freq(this.blkFrqArr[j]);
-      this.playing = true;
+    if (this.blkKeysToShow.includes(j)) {
+      fill(0);
+      push();
+
+      if (this.pianoKeyDown && mouseX >= (this.blkX + [j] * 125) - (this.blkW / 2) && mouseX <= (this.blkX + [j] * 125) + (this.blkW / 2)
+      && mouseY >= this.blkY - (this.blkH / 2) && mouseY <= this.blkY + ( this.blkH / 2) ) {
+        fill(255, 0, 0);
+        this.osc.freq(this.blkFrqArr[j]);
+        this.playing = true;
+      }
+      rect(this.blkX + [j] * 125, this.blkY, this.blkW, this.blkH, 5);
+      pop();
+
     }
-    rect(this.blkX + [j] * 125, this.blkY, this.blkW, this.blkH, 5);
-    pop();
-  }
-}
+    }
+
   // White Key functionality
   for (var i = 0; i < this.whtKeys.length; i++) {
     fill(255);

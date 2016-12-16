@@ -19,7 +19,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   rectMode(CENTER);
   keyboard = new Keyboard(width/6,500,width/(4.6),faders, knobs);
-                                // MODULATION \\
+  // MODULATION \\
   // Envelope
   faders.envAttMod = new Fader( 100, 100, 60, 20, 0.1, 0, 1);
   faders.envDecMod = new Fader( 200, 100, 60, 20, 0.2, 0, 1);
@@ -31,12 +31,32 @@ function setup() {
   knobs.filtFreqMod = new Knob(width - 200, 100, 60, 1, 0, 1);
   knobs.filtResMod = new Knob(width - 300, 100, 60, 0, 0, 1);
   // W A V E  F O R M
-  waveFormVal = new Knob(600, 200, 120, -1, 0, 3);
+  waveFormVal = new Knob(width/2, 200, 120, -1, 0, 3);
 }
 
 function draw() {
   background('#f592ae');
-  oscType = floor(map(int(waveFormVal.outputVal),0,height/20,0,3));
+  oscType = floor(map(waveFormVal.getValue(),-3,3,0,4));
+  if(oscType==0){
+    textAlign(CENTER);
+    textSize(20);
+    text("Sine Osc",width/2,300);
+  }
+  if(oscType==1){
+    textAlign(CENTER);
+    textSize(20);
+    text("Tri Osc",width/2,300);
+  }
+  if(oscType==2){
+    textAlign(CENTER);
+    textSize(20);
+    text("Saw Osc",width/2,300);
+  }
+  if(oscType==3){
+    textAlign(CENTER);
+    textSize(20);
+    text("Square Osc",width/2,300);
+  }
   keyboard.osc.setType(keyboard.oscShapes[oscType]);
   // Oscillator Functionality
   keyboard.oscLoop();
@@ -47,8 +67,16 @@ function draw() {
   textAlign(CENTER);
   textSize(40);
   text("ENVELOPE",250,200);
+  textSize(15);
+  text("A",100,30);
+  text("D",200,30);
+  text("S",300,30);
+  text("R",400,30);
   textSize(25);
-  text("FILTER",width-250,170);
+  text("FILTER",width - 250,170);
+  textSize(15);
+  text("freq", width-300,50);
+  text("res", width-200,50);
   textSize(80);
   textFont("Verdana");
   text("MONOCHROMA", width/2, height - 30);
@@ -61,7 +89,7 @@ function draw() {
   knobs.filtFreqMod.drawKnob();
   knobs.filtResMod.drawKnob();
   // Wavform Selector
-  // waveFormVal.drawKnob();
+  waveFormVal.drawKnob();
 }
 
 function mousePressed() {
@@ -76,7 +104,7 @@ function mousePressed() {
   knobs.filtFreqMod.selectKnob();
   knobs.filtResMod.selectKnob();
   // waveFormVal Selector Clicked
-  // waveFormVal.selectKnob();
+  waveFormVal.selectKnob();
 }
 function mouseDragged() {
   // Envelope Faders Value modulator
@@ -88,7 +116,7 @@ function mouseDragged() {
   knobs.filtFreqMod.updateValue();
   knobs.filtResMod.updateValue();
   // waveFormVal Selector Value
-  // waveFormVal.updateValue();
+  waveFormVal.updateValue();
 }
 function mouseReleased() {
   // Envelope Faders
@@ -102,7 +130,7 @@ function mouseReleased() {
   knobs.filtFreqMod.unselectKnob();
   knobs.filtResMod.unselectKnob();
   // waveFormVal Selector
-  // waveFormVal.unselectKnob();
+  waveFormVal.unselectKnob();
 }
 
 function keyPressed() {
