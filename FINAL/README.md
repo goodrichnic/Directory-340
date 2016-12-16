@@ -7,4 +7,4 @@ I've built a simple monophonic synthesizer with and oscillator triggered by user
 - Extra audio effects
 - Stylization
 
-[Here's my Paper](https://www.google.com "Google's Homepage")
+[Here's my Paper](https://github.com/goodrichnic/goodrichnic.github.io/blob/master/P5%20Mini%20Synth.pdf)
