@@ -10,16 +10,16 @@ var oscType;
 var waveFormVal;
 
 var segaFont;
-function preload() {
-// title = loadImage("goodrichnic.github.io/FINAL/Title_Card.png");
-}
+// function preload() {
+// // title = loadImage("goodrichnic.github.io/FINAL/Title_Card.png");
+// }
 
 function setup() {
 
   createCanvas(windowWidth, windowHeight);
   rectMode(CENTER);
   keyboard = new Keyboard(width/6,500,width/(4.6),faders, knobs);
-                                      // MODULATION \\
+                                // MODULATION \\
   // Envelope
   faders.envAttMod = new Fader( 100, 100, 60, 20, 0.1, 0, 1);
   faders.envDecMod = new Fader( 200, 100, 60, 20, 0.2, 0, 1);
@@ -28,8 +28,8 @@ function setup() {
   // Sound initiation
   keyboard.oscSetup();
   // F i l t e r
-  knobs.filtFreqMod = new Knob(width - 300, 100, 60, 1, 0, 1);
-  knobs.filtResMod = new Knob(width - 400, 100, 60, 0, 0, 1);
+  knobs.filtFreqMod = new Knob(width - 200, 100, 60, 1, 0, 1);
+  knobs.filtResMod = new Knob(width - 300, 100, 60, 0, 0, 1);
   // W A V E  F O R M
   waveFormVal = new Knob(600, 200, 120, -1, 0, 3);
 }
@@ -41,20 +41,23 @@ function draw() {
   // Oscillator Functionality
   keyboard.oscLoop();
   console.log(waveFormVal.outputVal);
-// Create Piano keys
+  // Create Piano keys
   keyboard.drawKeys();
-// Create Faders for Envelope
-  image(FINAL/Title_Card.png,500,500);
+  // TEXT
   textAlign(CENTER);
   textSize(40);
   text("ENVELOPE",250,200);
-  textSize(30);
-  text("FILTER",width-350,200);
+  textSize(25);
+  text("FILTER",width-250,170);
+  textSize(80);
+  textFont("Verdana");
+  text("MONOCHROMA", width/2, height - 30);
+  // Create Faders for Envelope
   faders.envAttMod.drawFader();
   faders.envDecMod.drawFader();
   faders.envSusMod.drawFader();
   faders.envRelMod.drawFader();
-// Create Filter Knobs
+  // Create Filter Knobs
   knobs.filtFreqMod.drawKnob();
   knobs.filtResMod.drawKnob();
   // Wavform Selector
@@ -62,21 +65,21 @@ function draw() {
 }
 
 function mousePressed() {
-// Envelope Faders
+  // Envelope Faders
   faders.envAttMod.selectFader();
   faders.envDecMod.selectFader();
   faders.envSusMod.selectFader();
   faders.envRelMod.selectFader();
-// Piano Keyboard Clicking
+  // Piano Keyboard Clicking
   keyboard.keySelect();
-// Filter Knob clicked
-knobs.filtFreqMod.selectKnob();
-knobs.filtResMod.selectKnob();
-// waveFormVal Selector Clicked
-// waveFormVal.selectKnob();
+  // Filter Knob clicked
+  knobs.filtFreqMod.selectKnob();
+  knobs.filtResMod.selectKnob();
+  // waveFormVal Selector Clicked
+  // waveFormVal.selectKnob();
 }
 function mouseDragged() {
-// Envelope Faders Value modulator
+  // Envelope Faders Value modulator
   faders.envAttMod.updateValue();
   faders.envDecMod.updateValue();
   faders.envSusMod.updateValue();
@@ -88,18 +91,18 @@ function mouseDragged() {
   // waveFormVal.updateValue();
 }
 function mouseReleased() {
-// Envelope Faders
+  // Envelope Faders
   faders.envAttMod.unselectFader();
   faders.envDecMod.unselectFader();
   faders.envSusMod.unselectFader();
   faders.envRelMod.unselectFader();
-// Piano Keyboard Mouse release
+  // Piano Keyboard Mouse release
   keyboard.keyRelease();
-// Filter knobs
-knobs.filtFreqMod.unselectKnob();
-knobs.filtResMod.unselectKnob();
-// waveFormVal Selector
-// waveFormVal.unselectKnob();
+  // Filter knobs
+  knobs.filtFreqMod.unselectKnob();
+  knobs.filtResMod.unselectKnob();
+  // waveFormVal Selector
+  // waveFormVal.unselectKnob();
 }
 
 function keyPressed() {
