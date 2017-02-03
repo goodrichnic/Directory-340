@@ -1,16 +1,16 @@
-function Keyboard( whtX, whtY, blkX, faders, knobs ) {
+function Keyboard(blkX, faders, knobs) {
   // Black Keys
   this.blkX = blkX;       //96;
-  this.blkY = whtY*(3/4);       //330;
-  this.blkW = 70;
-  this.blkH = 100;
+  this.blkY = this.whtY*(3/4);       //330;
+  this.blkW = width/6;
+  this.blkH = height/1.4;
   this.blkFill = 0;
   this.blkFrqArr = [138.59, 155.56, null, 185.00, 207.65, 233.08, null];
   // White Keys
-  this.whtX = whtX;       //35;
-  this.whtY = whtY;       //450;
-  this.whtW = 70;
-  this.whtH = 100;
+  this.whtX = width/6;       //35;
+  this.whtY = height/1.4;       //450;
+  this.whtW = width/18;
+  this.whtH = height/7;
   this.whtFill = 255;
   this.whtFrqArr = [130.81,146.83,164.81,174.61,196.00,220.00,246.94,261.63];
   // Octaves & Arrays

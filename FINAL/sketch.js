@@ -18,7 +18,7 @@ function setup() {
 
   createCanvas(windowWidth, windowHeight);
   rectMode(CENTER);
-  keyboard = new Keyboard(width/6,500,width/(4.6),faders, knobs);
+  keyboard = new Keyboard(width/(4.6),faders, knobs);
   // MODULATION \\
   // Envelope
   faders.envAttMod = new Fader( 100, 100, 60, 20, 0.1, 0, 1);
