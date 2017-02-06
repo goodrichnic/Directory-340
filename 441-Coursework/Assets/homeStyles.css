@@ -1,34 +1,182 @@
 /*FONT IMPORT*/
 @import url('https://fonts.googleapis.com/css?family=Advent+Pro');
 
-body{
-  background-color: #91A8d0;
+@media screen and (max-width: 480px){
+     body{
+          background-color: #91A8d0;
+     }
+
+                    /* LINKS (<a> tags) */
+     a:link {
+          font-family: Advent Pro,sans-serif;
+          text-decoration: none;
+          color: #f7cac9;
+     }
+     a:visited {
+          font-family: Advent Pro,sans-serif;
+          text-decoration: none;
+          color: #fff;
+     }
+     a:hover {
+          font-family: Advent Pro,sans-serif;
+          text-decoration: none;
+          color: #000;
+     }
+
+     /* id="" */
+     #body-wireframe {
+          margin:auto;
+          width: 400px;
+
+     }
+
+     #h1-centered {
+          border-width: thick;
+          text-align: center;
+          margin:auto;
+          font-family: Advent Pro,sans-serif;
+          font-size: 40px;
+     }
+
+     #h3-centered {
+          border-width: thick;
+          text-align: center;
+          margin:auto;
+          font-family: Advent Pro,sans-serif;
+          font-size: 20px;
+          padding-bottom: 1px;
+     }
+
+     /* class="" */
+     .title{
+          width: 330px;
+          border:2px;
+          border-style:outset;
+          border-color: #FFF8d0;
+          background-color: #91Afff;
+          padding: 10px;
+          margin: auto;
+     }
+
+     .title-linebreak {
+          width: 330px;
+          border-top: 1px solid #f7cac9;
+     }
+
+     .links {
+          font-family: Advent Pro, sans-serif;
+     }
+
+     .gen-hr-break {
+          width:450px;
+     }
+
+     .link-button {
+          /*margin-left: auto;*/
+          margin: auto;
+          border-radius: 15px;
+          background-color: #f7cac9;
+          width: 330px;
+          text-align: center;
+          font-size: 35px;
+     }
+     .link-button:hover {
+          /*margin-left: auto;*/
+          margin: auto;
+          border-radius: 15px;
+          background-color: #91Afff;
+          width: 330px;
+          text-align: center;
+          font-size: 35px;
+     }
+
 }
+@media screen and (min-width: 480px){
+     body{
+          background-color: #91A8d0;
+     }
 
-a {
-  font-family: Advent Pro,sans-serif;
-}
+                    /* LINKS (<a> tags) */
+     a:link {
+          font-family: Advent Pro,sans-serif;
+          text-decoration: none;
+          color: #f7cac9;
+     }
+     a:visited {
+          font-family: Advent Pro,sans-serif;
+          text-decoration: none;
+          color: #fff;
+     }
+     a:hover {
+          font-family: Advent Pro,sans-serif;
+          text-decoration: none;
+          color: #000;
+     }
 
-/* id="" */
-#centered {
-  border-width: thick;
-  text-align: center;
-  margin:auto;
-  font-family: Advent Pro,sans-serif;
-}
+     /* id="" */
+     #body-wireframe {
+          margin:auto;
+          width: 1000px;
 
-/* class="" */
-.title{
-  width: 1000;
-  border:2px;
-  border-radius: 25px;
-  border-style: dashed;
-  border-color: #FFF8d0;
-  background-color: #91Afff;
-  padding: 25px;
-  margin: auto;
-}
+     }
 
-.links {
+     #h1-centered {
+          border-width: thick;
+          text-align: left;
+          margin:auto;
+          font-family: Advent Pro,sans-serif;
+          font-size: 40px;
+     }
 
+     #h3-centered {
+          border-width: thick;
+          text-align: right;
+          margin:auto;
+          font-family: Advent Pro,sans-serif;
+          font-size: 20px;
+          padding-bottom: 1px;
+     }
+
+     /* class="" */
+     .title{
+          width: 1000px;
+          border:2px;
+          border-style:outset;
+          border-color: #FFF8d0;
+          background-color: #91Afff;
+          padding: 10px;
+          margin: auto;
+     }
+
+     .title-linebreak {
+          width: 0px;
+          border-top: 0px;
+     }
+
+     .links {
+          font-family: Advent Pro, sans-serif;
+     }
+
+     .gen-hr-break {
+          width:450px;
+     }
+
+     .link-button {
+          /*margin-left: auto;*/
+          margin: auto;
+          border-radius: 15px;
+          background-color: #f7cac9;
+          width: 330px;
+          text-align: center;
+          font-size: 35px;
+     }
+     .link-button:hover {
+          /*margin-left: auto;*/
+          margin: auto;
+          border-radius: 15px;
+          background-color: #91Afff;
+          width: 330px;
+          text-align: center;
+          font-size: 35px;
+     }
 }
