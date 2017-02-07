@@ -1,0 +1,4 @@
+##Hey! I built that landing page!
+
+This assignment was a fun exercise in discovering how much bare bones CSS I really know. It's an interesting contrast from my normal workplace, in a Wordpress site and cPanel. I didn't have any difficulties understanding how the file structure interacted with itself but I did have some troubles getting Github to function properly. I initially built my repository outside of my .io project page and couldn't get my project online. I had to go into the repo settings and change its master branch to get it to function.
+Working with CSS again, I had to constantly remind myself of syntax with cheatsheets and google searches etcetera. In the past when I've done work like this I've done almost all my styling from my HTML tags. Super inefficient. Making myself do everything within the stylesheet was very helpful in showing me how neat and concise my HTML can be.
