@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="utf-8">
+     <link rel="stylesheet" href="adventureStyles.css">
+     <title>Choose Your Adventure</title>
+</head>
+<body>
+
+     <center>
+          <div class="story">
+               <img src="images/Bat Cave.jpg">
+               <p id="text">
+                    Oh no!
+               </p>
+               <button id="next" onclick="nextOne()"> Next </button>
+               <br>
+               <!-- <p>
+               You've barely come to terms with this landscape and you hear someone approaching behind you. Before we decide what to do about them: WHAT'S YOUR NAME!?
+          </p> -->
+
+     </div>
+
+</center>
+<script>
+var playerName = "Percibel";
+
+
+function nextOne() {
+     // Creates new text in text box and button onclick
+     document.getElementById("text").innerHTML = "You're stuck in a very spooky cave!";
+     document.getElementById("next").innerHTML = "Next";
+     // Changes the functional redirect of the button to the the next function.
+     document.getElementById( "next" ).setAttribute("onclick", "nextTwo()");
+}
+
+function nextTwo() {
+     document.getElementById("text").innerHTML = "You only have 3 hours to escape. You will spontanesously combust if you do not <b>escape</b>."
+     document.getElementById("next").innerHTML = "Next";
+     document.getElementById("next").setAttribute("onclick", "nextThree()");
+     document.createElement(input).innerHTML;
+}
+
+function nextThree() {
+     document.getElementById("text").innerHTML = "But before you decide what to do first: WHAT IS YOUR NAME?!";
+     document.createElement(input);
+     document.getElementById("next").setAttribute("class", "dead-button");
+}
+
+</script>
+</body>
+</html>

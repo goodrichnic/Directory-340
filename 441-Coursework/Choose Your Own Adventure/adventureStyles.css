@@ -1,0 +1,32 @@
+body{
+     background-color: pink;
+     font-family: sans-serif;
+}
+
+button {
+     background-color:pink;
+     border: none;
+     border-radius: 5px;
+     font-size: 15px;
+}
+
+.dead-button {
+     width:0%;
+     height:0%;
+     font-size:0px
+}
+
+button:active {
+     background-color:#16c3ee;
+}
+
+.story {
+     border-radius: 25px;
+     background-color: crimson;
+     text-align: center;
+     width :80%;
+     vertical-align: middle;
+     border-style: solid;
+     border-color: crimson;
+     border-width: 20px;
+}
