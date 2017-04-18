@@ -38,14 +38,12 @@ function nextTwo() {
      document.getElementById("text").innerHTML = "You only have 3 hours to escape. You will spontanesously combust if you do not <b>escape</b>."
      document.getElementById("next").innerHTML = "Next";
      document.getElementById("next").setAttribute("onclick", "nextThree()");
-     document.createElement(input).innerHTML;
 }
 
 function nextThree() {
      document.getElementById("text").innerHTML = "But before you decide what to do first: WHAT IS YOUR NAME?!";
      // Trying to eliminate button and change it to a text box
-     document.createElement(input);
-     document.getElementById("next").setAttribute("class", "dead-button");
+     document.getElementbyTag("input").setAttribute = ("button", "text");
 }
 
 </script>
