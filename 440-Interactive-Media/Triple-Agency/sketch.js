@@ -7,7 +7,7 @@ function setup() {
      // cars = car.carAmt;
      createCanvas(windowWidth,windowHeight);
      rectMode(CENTER);
-     for (var i = 0; i < car; i++) {
+     for (var i = 0; i < 4; i++) {
           cars.push(new Car (width/3, (height * (2/3)) + (i * 20) ));
      }
      for (var j = 0; j < 25; j++) {
